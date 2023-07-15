@@ -4,13 +4,14 @@ gradlew
 gradlew.bat
 AccessKey.java
 build/
-build.gradle
 settings.gradle
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
 
 ### IntelliJ IDEA ###
+/shelf/
+/workspace.xml
 .idea/modules.xml
 .idea/jarRepositories.xml
 .idea/compiler.xml
@@ -46,3 +47,4 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+/.idea/workspace.xml
