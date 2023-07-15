@@ -1,4 +1,4 @@
-package com.github.ericnaibert.weatherfx;
+package com.github.ericnaibert.weatherfx.api;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 @SuppressWarnings("unused")
-public class WeatherInfoJson implements Serializable {
+public class WeatherGson implements Serializable {
 
     private Location location;
     private Current current;

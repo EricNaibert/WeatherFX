@@ -33,7 +33,7 @@ public class ApplicationInterface extends Application {
         inputField.setMinWidth(300);
         inputField.setLayoutX(200);
         inputField.setLayoutY(40);
-
+        InputFieldEvent.event();
         root.getChildren().add(inputField);
 
         Scene scene = new Scene(root, 700, 500);
