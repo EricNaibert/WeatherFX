@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+Label{
+    -fx-font-family: Inter;
+}
+
+#weatherFX {
+    -fx-font-weight: bold;
+    -fx-font-size: 15;
+    -fx-text-fill: snow;
+}
+
+#cityID {
+    -fx-font-size: 30;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+#currentTemperatureID {
+    -fx-font-size: 32;
+    -fx-font-weight: bold;
+}
+
+#feelsLikeID {
+    -fx-font-size: 20;
+}
+
+#windSpeedID {
+    -fx-font-size: 30;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+#windDirectionID {
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+#infoResultID {
+    -fx-font-size: 20;
+    -fx-text-fill: white;
+}
+
+#forecastInfoResultID {
+    -fx-font-size: 17;
+    -fx-text-fill: white;
+}
+
+#dayOfWeekID{
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+#hyperlinks {
+    -fx-border-color: transparent;
+    -fx-font-family: Inter;
+    -fx-font-size: 15;
+}

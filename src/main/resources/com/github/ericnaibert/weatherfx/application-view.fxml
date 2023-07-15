@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.github.ericnaibert.weatherfx.Controller">
+   <ImageView fitHeight="535.0" fitWidth="713.0" layoutX="-6.0" layoutY="-17.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@images/Background.png" />
+   </ImageView>
+   <Separator layoutX="14.0" layoutY="71.0" prefHeight="14.0" prefWidth="670.0" />
+   <Label id="weatherFX" layoutX="319.0" layoutY="14.0" text="Weather FX" textAlignment="CENTER" />
+   <Separator layoutX="14.0" layoutY="275.0" prefHeight="0.0" prefWidth="670.0" />
+   <Label id="hyperlinks" layoutX="147.00000000000003" layoutY="470.0" text="Created by" textFill="#ffffff80" AnchorPane.bottomAnchor="3.6000000000000227" AnchorPane.leftAnchor="147.00000000000003" AnchorPane.rightAnchor="471.4" AnchorPane.topAnchor="470.0">
+      <font>
+         <Font name="Arial" size="17.0" />
+      </font>
+   </Label>
+   <Hyperlink id="hyperlinks" fx:id="ericNaibert" layoutX="231.0" layoutY="466.0" onAction="#hyperlinkGit" stylesheets="@application.css" text="Eric Naibert" textFill="#ffffff80" AnchorPane.bottomAnchor="-0.39999999999997726" AnchorPane.leftAnchor="231.0" AnchorPane.rightAnchor="370.6" AnchorPane.topAnchor="466.0">
+      <font>
+         <Font name="Arial" size="17.0" />
+      </font>
+   </Hyperlink>
+   <Label id="hyperlinks" layoutX="324.0" layoutY="470.0" text="| Powered by" textFill="#ffffff80" AnchorPane.bottomAnchor="3.6000000000000227" AnchorPane.leftAnchor="324.0" AnchorPane.rightAnchor="278.4" AnchorPane.topAnchor="470.0">
+      <font>
+         <Font name="Arial" size="17.0" />
+      </font>
+   </Label>
+   <Hyperlink id="hyperlinks" fx:id="weatherAPI" layoutX="423.0" layoutY="466.0" onAction="#hyperlinkAPI" stylesheets="@application.css" text="WeatherAPI.com" textFill="#ffffff80" AnchorPane.bottomAnchor="-0.39999999999997726" AnchorPane.leftAnchor="423.0" AnchorPane.rightAnchor="141.0" AnchorPane.topAnchor="466.0">
+      <font>
+         <Font name="Arial" size="17.0" />
+      </font>
+   </Hyperlink>
+</AnchorPane>
