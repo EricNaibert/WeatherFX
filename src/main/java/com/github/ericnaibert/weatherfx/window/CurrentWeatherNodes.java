@@ -67,6 +67,8 @@ public class CurrentWeatherNodes extends ApplicationInterface{
         root.getChildren().add(cityWindDirectionResult);
         NodeStorage.addToNodeStorageList(cityWindDirectionResult);
 
+        WindArrowDirection.arrowDirection();
+
         Label cityWindLabel = new Label();
         cityWindLabel.setText("Wind");
         cityWindLabel.setId("infoResultID");
@@ -90,6 +92,8 @@ public class CurrentWeatherNodes extends ApplicationInterface{
         cityUVR.setLayoutY(235);
         root.getChildren().add(cityUVR);
         NodeStorage.addToNodeStorageList(cityUVR);
+
+        UVColorLevel.uvColorChanger();
 
     }
 
