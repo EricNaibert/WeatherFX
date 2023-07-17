@@ -1,5 +1,6 @@
 package com.github.ericnaibert.weatherfx.api;
 
+import com.github.ericnaibert.weatherfx.window.InputFieldEvent;
 import javafx.concurrent.Task;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -11,7 +12,7 @@ public class WeatherConnection extends Task<Void> {
 
     public static Void httpsConnection() {
 
-        String cityName = "London";
+        String cityName = InputFieldEvent.cityName;
 
         try {
 
@@ -36,6 +37,7 @@ public class WeatherConnection extends Task<Void> {
                     informationFromJson.append(scanner.nextLine());
                 }
 
+                WeatherData.clearData();
                 WeatherData weatherData = new WeatherData();
                 weatherData.storeData(informationFromJson);
 

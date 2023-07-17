@@ -1,5 +1,7 @@
-package com.github.ericnaibert.weatherfx;
+package com.github.ericnaibert.weatherfx.window;
 
+import com.github.ericnaibert.weatherfx.Controller;
+import com.github.ericnaibert.weatherfx.Main;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
@@ -18,9 +20,9 @@ public class ApplicationInterface extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(ApplicationInterface.class.getResource("application-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("application-view.fxml"));
 
-        String css = (Objects.requireNonNull(ApplicationInterface.class.getResource("application.css")).toExternalForm());
+        String css = (Objects.requireNonNull(Main.class.getResource("application.css")).toExternalForm());
 
         root = new Group();
         root.getChildren().add(fxmlLoader.load());

@@ -1,7 +1,8 @@
-package com.github.ericnaibert.weatherfx;
+package com.github.ericnaibert.weatherfx.window;
 
+import com.github.ericnaibert.weatherfx.LoadingProgressHud;
 import com.github.ericnaibert.weatherfx.api.WeatherConnection;
-import com.github.ericnaibert.weatherfx.api.WeatherData;
+import javafx.scene.Node;
 import javafx.scene.input.KeyCode;
 
 import java.text.Normalizer;
@@ -41,15 +42,13 @@ public class InputFieldEvent {
         weatherServer.setOnRunning(event1 -> {
             LoadingProgressHud.progressLoadingHub();
             LoadingProgressHud.stage.show();
+            ApplicationInterface.root.getChildren().removeAll(NodeStorage.getNodeStorageList());
         });
 
         weatherServer.setOnSucceeded(event1 -> {
             LoadingProgressHud.stage.close();
-            WeatherData weatherData = new WeatherData();
-            System.out.println(weatherData.getCurrentCityName());
-            System.out.println(weatherData.getCurrentTemperatureC());
-            System.out.println(weatherData.getMaxTemperatureC(0));
-            System.out.println(weatherData.getForecastCityWeatherText(0));
+            CurrentWeatherNodes.nodesToScreen();
+            ForecastWeatherNodes.nodesToScreen();
 
         });
     }

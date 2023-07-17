@@ -60,6 +60,16 @@ public class WeatherData {
         }
     }
 
+    public static void clearData() {
+        WeatherData.forecastCityWeatherText.clear();
+        WeatherData.forecastCityWeatherIcon.clear();
+        WeatherData.maxTemperatureC.clear();
+        WeatherData.maxTemperatureF.clear();
+        WeatherData.minTemperatureC.clear();
+        WeatherData.minTemperatureF.clear();
+        WeatherData.dayPrecipitation.clear();
+    }
+
     public String getCurrentCityName() {
         return currentCityName;
     }
