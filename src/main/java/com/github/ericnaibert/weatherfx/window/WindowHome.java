@@ -1,34 +1,36 @@
 package com.github.ericnaibert.weatherfx.window;
 
-import com.github.ericnaibert.weatherfx.Controller;
+import com.github.ericnaibert.weatherfx.ApplicationInterface;
 import com.github.ericnaibert.weatherfx.Main;
-import javafx.application.Application;
+import com.github.ericnaibert.weatherfx.controllers.KeyHomeController;
+import com.github.ericnaibert.weatherfx.controllers.WindowHomeController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Objects;
 
-public class ApplicationInterface extends Application {
+public class WindowHome extends ApplicationInterface {
 
-    public static Group root;
-    public static TextField inputField;
+    public static Scene scene;
 
-    @Override
-    public void start(Stage stage) throws IOException {
+    public void weatherHome() {
 
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("application-view.fxml"));
 
         String css = (Objects.requireNonNull(Main.class.getResource("application.css")).toExternalForm());
 
         root = new Group();
-        root.getChildren().add(fxmlLoader.load());
+        try {
+            root.getChildren().add(fxmlLoader.load());
+        } catch (IOException e) {
+            System.out.println("Exception: " + e);
+        }
 
-        Controller fxmlController = fxmlLoader.getController();
-        fxmlController.setGetHostController(getHostServices());
+        WindowHomeController windowHomeController = fxmlLoader.getController();
+        windowHomeController.setGetHostController(getHostServices());
 
         inputField = new TextField();
         inputField.setPrefWidth(300);
@@ -38,16 +40,8 @@ public class ApplicationInterface extends Application {
         InputFieldEvent.event();
         root.getChildren().add(inputField);
 
-        Scene scene = new Scene(root, 700, 500);
+        scene = new Scene(root, 700, 500);
         scene.getStylesheets().add(css);
-        stage.setResizable(false);
-        stage.setTitle("Weather FX");
-        stage.setScene(scene);
-        stage.show();
-    }
 
-    @SuppressWarnings("unused")
-    public static void init(String[] args) {
-        launch();
     }
 }

@@ -1,5 +1,6 @@
 package com.github.ericnaibert.weatherfx.api;
 
+import com.github.ericnaibert.weatherfx.data.KeyReader;
 import com.github.ericnaibert.weatherfx.window.InputFieldEvent;
 import javafx.concurrent.Task;
 
@@ -13,13 +14,13 @@ public class WeatherConnection extends Task<Void> {
     public static Void httpsConnection() {
 
         String cityName = InputFieldEvent.cityName;
+        String accessKey = KeyReader.getAccessKey();
 
         try {
 
-            AccessKey accessKey = new AccessKey();
             String cityURL = "&q=" + cityName + "&days=3&aqi=no&alerts=no";
 
-            String url = "https://api.weatherapi.com/v1/forecast.json?key=" + accessKey.getKey() + cityURL;
+            String url = "https://api.weatherapi.com/v1/forecast.json?key=" + accessKey + cityURL;
 
             URL weatherURL = new URI(url).toURL();
 

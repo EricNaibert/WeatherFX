@@ -11,4 +11,8 @@ module com.github.ericnaibert.weatherfx {
     opens com.github.ericnaibert.weatherfx.api to com.google.gson, javafx.fxml;
     exports com.github.ericnaibert.weatherfx.window;
     opens com.github.ericnaibert.weatherfx.window to com.google.gson, javafx.fxml;
+    exports com.github.ericnaibert.weatherfx.controllers;
+    opens com.github.ericnaibert.weatherfx.controllers to com.google.gson, javafx.fxml;
+    exports com.github.ericnaibert.weatherfx.tools;
+    opens com.github.ericnaibert.weatherfx.tools to com.google.gson, javafx.fxml;
 }

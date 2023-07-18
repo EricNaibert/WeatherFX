@@ -1,8 +1,8 @@
 package com.github.ericnaibert.weatherfx.window;
 
-import com.github.ericnaibert.weatherfx.LoadingProgressHud;
+import com.github.ericnaibert.weatherfx.ApplicationInterface;
+import com.github.ericnaibert.weatherfx.tools.LoadingProgressHud;
 import com.github.ericnaibert.weatherfx.api.WeatherConnection;
-import javafx.scene.Node;
 import javafx.scene.input.KeyCode;
 
 import java.text.Normalizer;

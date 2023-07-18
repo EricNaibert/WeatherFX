@@ -1,9 +1,10 @@
 package com.github.ericnaibert.weatherfx.window;
 
+import com.github.ericnaibert.weatherfx.ApplicationInterface;
 import com.github.ericnaibert.weatherfx.api.WeatherData;
 import javafx.scene.control.Label;
 
-public class CurrentWeatherNodes extends ApplicationInterface{
+public class CurrentWeatherNodes extends ApplicationInterface {
 
     public static void nodesToScreen() {
 

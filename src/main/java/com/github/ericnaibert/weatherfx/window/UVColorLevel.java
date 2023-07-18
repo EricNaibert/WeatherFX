@@ -1,11 +1,12 @@
 package com.github.ericnaibert.weatherfx.window;
 
+import com.github.ericnaibert.weatherfx.ApplicationInterface;
 import com.github.ericnaibert.weatherfx.Main;
 import com.github.ericnaibert.weatherfx.api.WeatherData;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class UVColorLevel extends ApplicationInterface{
+public class UVColorLevel extends ApplicationInterface {
 
     public static void uvColorChanger() {
 

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0"
+            prefWidth="500.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.github.ericnaibert.weatherfx.controllers.KeyHomeController">
+   <ImageView fitHeight="340.0" fitWidth="600.0" layoutX="-5.0" layoutY="-20.0" pickOnBounds="true"
+              preserveRatio="true">
+      <Image url="@images/CitySkyes.jpg"/>
+   </ImageView>
+   <Label alignment="CENTER" contentDisplay="CENTER" layoutX="216.0" layoutY="30.0" text="WeatherFX"
+          textAlignment="CENTER" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="14.0"/>
+      </font>
+   </Label>
+   <Label alignment="CENTER" contentDisplay="CENTER" layoutX="52.0" layoutY="59.0" prefHeight="20.0" prefWidth="399.0"
+          text="To use this application, you must have the weather API key" textAlignment="CENTER" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="14.0"/>
+      </font>
+   </Label>
+   <Label layoutX="89.0" layoutY="237.0" text="This app will store it’s data locally on your computer"
+          textAlignment="CENTER" textFill="WHITE">
+      <font>
+         <Font size="14.0"/>
+      </font>
+   </Label>
+   <Label layoutX="91.0" layoutY="257.0" text="It’ll only use your key to make a request to the API ! "
+          textAlignment="CENTER" textFill="WHITE">
+      <font>
+         <Font size="14.0"/>
+      </font>
+   </Label>
+   <Hyperlink id="hyperlinks" layoutX="39.0" layoutY="190.0"
+              text="If you don’t have a key. Make your account in WeatherAPI.com" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="14.0"/>
+      </font>
+   </Hyperlink>
+</AnchorPane>

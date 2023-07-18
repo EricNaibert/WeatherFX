@@ -1,4 +1,4 @@
-package com.github.ericnaibert.weatherfx;
+package com.github.ericnaibert.weatherfx.tools;
 
 import java.util.Date;
 

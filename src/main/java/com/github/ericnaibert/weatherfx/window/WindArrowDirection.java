@@ -1,10 +1,11 @@
 package com.github.ericnaibert.weatherfx.window;
 
+import com.github.ericnaibert.weatherfx.ApplicationInterface;
 import com.github.ericnaibert.weatherfx.Main;
 import com.github.ericnaibert.weatherfx.api.WeatherData;
 import javafx.scene.image.ImageView;
 
-public class WindArrowDirection extends ApplicationInterface{
+public class WindArrowDirection extends ApplicationInterface {
 
     public static void arrowDirection() {
         WeatherData weatherData = new WeatherData();

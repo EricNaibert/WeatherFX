@@ -1,4 +1,4 @@
-package com.github.ericnaibert.weatherfx;
+package com.github.ericnaibert.weatherfx.controllers;
 
 import javafx.application.HostServices;
 import javafx.event.ActionEvent;
@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Hyperlink;
 
 @SuppressWarnings("unused")
-public class Controller {
+public class WindowHomeController {
 
     @FXML
     private Hyperlink ericNaibert;

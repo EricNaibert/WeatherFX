@@ -1,6 +1,7 @@
 package com.github.ericnaibert.weatherfx.window;
 
-import com.github.ericnaibert.weatherfx.DateDefinition;
+import com.github.ericnaibert.weatherfx.ApplicationInterface;
+import com.github.ericnaibert.weatherfx.tools.DateDefinition;
 import com.github.ericnaibert.weatherfx.api.WeatherData;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -10,7 +11,7 @@ import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
 
-public class ForecastWeatherNodes extends ApplicationInterface{
+public class ForecastWeatherNodes extends ApplicationInterface {
 
     public static void nodesToScreen() {
 
