@@ -2,7 +2,6 @@ package com.github.ericnaibert.weatherfx.window;
 
 import com.github.ericnaibert.weatherfx.ApplicationInterface;
 import com.github.ericnaibert.weatherfx.Main;
-import com.github.ericnaibert.weatherfx.controllers.KeyHomeController;
 import com.github.ericnaibert.weatherfx.controllers.WindowHomeController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;

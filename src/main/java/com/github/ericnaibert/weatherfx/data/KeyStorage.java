@@ -6,9 +6,8 @@ import java.nio.file.Path;
 
 public class KeyStorage {
 
-    public void storeKey() {
+    public void storeKey(String accessKey) {
 
-        String accessKey = KeyHome.getKey();
         String userHome = System.getProperty("user.home");
         String path = userHome + File.separator + "WeatherFX" + File.separator + "WeatherConfig.wfx";
 

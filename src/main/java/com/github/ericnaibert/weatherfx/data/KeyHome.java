@@ -34,14 +34,17 @@ public class KeyHome extends ApplicationInterface {
         KeyHomeController keyHomeController = fxmlLoader.getController();
         keyHomeController.setHostServices(getHostServices());
 
-        homeScene = new Scene(homeRoot, 500, 300);
-        homeScene.getStylesheets().add(css);
-
         TextField textFieldKey = new TextField();
+        textFieldKey.setLayoutX(50);
+        textFieldKey.setLayoutY(100);
+        textFieldKey.setPrefWidth(400);
         setKey(textFieldKey.getText());
-        keyStorage.storeKey();
+        keyStorage.storeKey(getKey());
 
+        homeRoot.getChildren().add(textFieldKey);
 
+        homeScene = new Scene(homeRoot, 505, 305);
+        homeScene.getStylesheets().add(css);
     }
 
     public static String getKey() {
