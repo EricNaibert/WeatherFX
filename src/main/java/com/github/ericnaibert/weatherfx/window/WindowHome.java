@@ -30,13 +30,14 @@ public class WindowHome extends ApplicationInterface {
 
         WindowHomeController windowHomeController = fxmlLoader.getController();
         windowHomeController.setGetHostController(getHostServices());
+        WindowInputFieldEvent inputFieldEvent = new WindowInputFieldEvent();
 
         inputField = new TextField();
         inputField.setPrefWidth(300);
         inputField.setMinWidth(300);
         inputField.setLayoutX(200);
         inputField.setLayoutY(40);
-        InputFieldEvent.event();
+        inputField.setOnAction(inputFieldEvent.eventHandler(inputField));
         root.getChildren().add(inputField);
 
         scene = new Scene(root, 700, 500);

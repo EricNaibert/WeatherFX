@@ -8,7 +8,8 @@ public class KeyReader {
 
     public static void keyReader() {
 
-        String path = "";
+        String userHome = System.getProperty("user.home");
+        String path = userHome + File.separator + "WeatherFX" + File.separator + "WeatherConfig.wfx";
 
         try {
             FileInputStream fileInputStream = new FileInputStream(path);
@@ -17,7 +18,7 @@ public class KeyReader {
             setAccessKey(dataInputStream.readUTF());
 
         } catch(FileNotFoundException e) {
-            System.out.println("File Not Found! Exception: " + e);
+            System.out.println("Key Reader(): File Not Found! Exception: " + e);
         } catch (IOException e) {
             System.out.println("Exception: " + e);
         }

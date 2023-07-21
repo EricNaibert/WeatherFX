@@ -34,10 +34,13 @@ public class KeyHome extends ApplicationInterface {
         KeyHomeController keyHomeController = fxmlLoader.getController();
         keyHomeController.setHostServices(getHostServices());
 
+        KeyInputFieldEvent inputFieldEvent = new KeyInputFieldEvent();
+
         TextField textFieldKey = new TextField();
         textFieldKey.setLayoutX(50);
         textFieldKey.setLayoutY(100);
         textFieldKey.setPrefWidth(400);
+        textFieldKey.setOnAction(inputFieldEvent.eventHandler(textFieldKey));
         setKey(textFieldKey.getText());
         keyStorage.storeKey(getKey());
 

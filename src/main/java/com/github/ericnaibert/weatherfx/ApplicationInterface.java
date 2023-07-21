@@ -25,10 +25,10 @@ public class ApplicationInterface extends Application {
         stage.setResizable(false);
         stage.setTitle("Weather FX");
 
-        WindowHome windowHome = new WindowHome();
         KeyHome keyHome = new KeyHome();
+        WindowHome windowHome = new WindowHome();
 
-        if(file.mkdir()) {
+        if(file.exists()) {
             KeyReader.keyReader();
             windowHome.weatherHome();
             stage.setScene(WindowHome.scene);

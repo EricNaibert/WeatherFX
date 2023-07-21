@@ -1,7 +1,7 @@
 package com.github.ericnaibert.weatherfx.api;
 
 import com.github.ericnaibert.weatherfx.data.KeyReader;
-import com.github.ericnaibert.weatherfx.window.InputFieldEvent;
+import com.github.ericnaibert.weatherfx.window.WindowInputFieldEvent;
 import javafx.concurrent.Task;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -13,7 +13,7 @@ public class WeatherConnection extends Task<Void> {
 
     public static Void httpsConnection() {
 
-        String cityName = InputFieldEvent.cityName;
+        String cityName = WindowInputFieldEvent.cityName;
         String accessKey = KeyReader.getAccessKey();
 
         try {

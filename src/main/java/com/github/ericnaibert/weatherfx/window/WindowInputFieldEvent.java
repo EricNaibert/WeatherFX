@@ -1,26 +1,29 @@
 package com.github.ericnaibert.weatherfx.window;
 
 import com.github.ericnaibert.weatherfx.ApplicationInterface;
+import com.github.ericnaibert.weatherfx.InputFieldEvent;
 import com.github.ericnaibert.weatherfx.tools.LoadingProgressHud;
 import com.github.ericnaibert.weatherfx.api.WeatherConnection;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 
 import java.text.Normalizer;
 import java.util.Arrays;
 
-public class InputFieldEvent {
+public class WindowInputFieldEvent implements InputFieldEvent {
 
     public static String cityName;
 
-    public static void event() {
+    @Override
+    public EventHandler<ActionEvent> eventHandler(TextField textField) {
 
-        ApplicationInterface.inputField.setOnKeyPressed(event -> {
+        textField.setOnKeyPressed(event -> {
 
             if (event.getCode() == KeyCode.ENTER) {
 
-                //ApplicationInterface.root.getChildren().removeAll(resultStorage);
-
-                String temp = ApplicationInterface.inputField.getText();
+                String temp = textField.getText();
                 String[] storeName = temp.split(" ");
                 cityName = inputFilter(removeWhitespaces(storeName));
 
@@ -31,6 +34,7 @@ public class InputFieldEvent {
 
             }
         });
+        return null;
     }
 
     public static void invokeWeatherTask() {
@@ -72,5 +76,4 @@ public class InputFieldEvent {
 
         return rawString;
     }
-
 }
