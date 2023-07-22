@@ -2,8 +2,7 @@ package com.github.ericnaibert.weatherfx.window;
 
 import com.github.ericnaibert.weatherfx.ApplicationInterface;
 import com.github.ericnaibert.weatherfx.InputFieldEvent;
-import com.github.ericnaibert.weatherfx.tools.LoadingProgressHud;
-import com.github.ericnaibert.weatherfx.api.WeatherConnection;
+import com.github.ericnaibert.weatherfx.api.InvokeTask;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.TextField;
@@ -14,7 +13,7 @@ import java.util.Arrays;
 
 public class WindowInputFieldEvent implements InputFieldEvent {
 
-    public static String cityName;
+    public static String inputCityName;
 
     @Override
     public EventHandler<ActionEvent> eventHandler(TextField textField) {
@@ -25,9 +24,9 @@ public class WindowInputFieldEvent implements InputFieldEvent {
 
                 String temp = textField.getText();
                 String[] storeName = temp.split(" ");
-                cityName = inputFilter(removeWhitespaces(storeName));
+                inputCityName = inputFilter(removeWhitespaces(storeName));
 
-                invokeWeatherTask();
+                InvokeTask.invokeWeatherTask(inputCityName);
 
                 ApplicationInterface.inputField.clear();
                 ApplicationInterface.inputField.requestFocus();
@@ -35,26 +34,6 @@ public class WindowInputFieldEvent implements InputFieldEvent {
             }
         });
         return null;
-    }
-
-    public static void invokeWeatherTask() {
-        WeatherConnection weatherServer = new WeatherConnection();
-        Thread thread = new Thread(weatherServer);
-        thread.setDaemon(true);
-        thread.start();
-
-        weatherServer.setOnRunning(event1 -> {
-            LoadingProgressHud.progressLoadingHub();
-            LoadingProgressHud.stage.show();
-            ApplicationInterface.root.getChildren().removeAll(NodeStorage.getNodeStorageList());
-        });
-
-        weatherServer.setOnSucceeded(event1 -> {
-            LoadingProgressHud.stage.close();
-            CurrentWeatherNodes.nodesToScreen();
-            ForecastWeatherNodes.nodesToScreen();
-
-        });
     }
 
     public static String inputFilter(String str) {

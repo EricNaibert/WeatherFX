@@ -2,12 +2,16 @@ package com.github.ericnaibert.weatherfx.window;
 
 import com.github.ericnaibert.weatherfx.ApplicationInterface;
 import com.github.ericnaibert.weatherfx.Main;
+import com.github.ericnaibert.weatherfx.api.InvokeTask;
 import com.github.ericnaibert.weatherfx.controllers.WindowHomeController;
+import com.github.ericnaibert.weatherfx.favorite.FavoriteCityReader;
+import com.github.ericnaibert.weatherfx.tools.StoragePath;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -16,6 +20,9 @@ public class WindowHome extends ApplicationInterface {
     public static Scene scene;
 
     public void weatherHome() {
+
+        StoragePath storagePath = new StoragePath();
+        File favoriteFilePath = storagePath.favoritePath();
 
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("application-view.fxml"));
 
@@ -39,6 +46,10 @@ public class WindowHome extends ApplicationInterface {
         inputField.setLayoutY(40);
         inputField.setOnAction(inputFieldEvent.eventHandler(inputField));
         root.getChildren().add(inputField);
+
+        if(favoriteFilePath.exists()) {
+            InvokeTask.invokeWeatherTask(FavoriteCityReader.readFavorite());
+        }
 
         scene = new Scene(root, 700, 500);
         scene.getStylesheets().add(css);
