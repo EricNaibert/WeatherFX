@@ -2,6 +2,7 @@ package com.github.ericnaibert.weatherfx.window;
 
 import com.github.ericnaibert.weatherfx.ApplicationInterface;
 import com.github.ericnaibert.weatherfx.api.WeatherData;
+import com.github.ericnaibert.weatherfx.favorite.FavoriteCityNode;
 import javafx.scene.control.Label;
 
 public class CurrentWeatherNodes extends ApplicationInterface {
@@ -9,19 +10,30 @@ public class CurrentWeatherNodes extends ApplicationInterface {
     public static void nodesToScreen() {
 
         WeatherData weatherData = new WeatherData();
+        int defaultLayoutX = 40;
 
         Label cityNameResult = new Label();
         cityNameResult.setText(weatherData.getCurrentCityName());
         cityNameResult.setId("cityID");
-        cityNameResult.setLayoutX(40);
+        cityNameResult.setLayoutX(defaultLayoutX);
         cityNameResult.setLayoutY(85);
         root.getChildren().add(cityNameResult);
         NodeStorage.addToNodeStorageList(cityNameResult);
 
+        double cityNameLength = cityNameResult.getText().getBytes().length;
+        double finalLength;
+        if(cityNameLength <= 10) {
+            finalLength = 20 * cityNameLength;
+        } else {
+            finalLength = 17 * cityNameLength;
+        }
+
+        FavoriteCityNode.favoriteButton(defaultLayoutX + finalLength, 88);
+
         Label cityRegionResult = new Label();
         cityRegionResult.setText(weatherData.getCurrentRegion() + ", " + weatherData.getCurrentCountry());
         cityRegionResult.setId("infoResultID");
-        cityRegionResult.setLayoutX(40);
+        cityRegionResult.setLayoutX(defaultLayoutX);
         cityRegionResult.setLayoutY(120);
         root.getChildren().add(cityRegionResult);
         NodeStorage.addToNodeStorageList(cityRegionResult);
@@ -29,7 +41,7 @@ public class CurrentWeatherNodes extends ApplicationInterface {
         Label cityCurrentTemperatureResult = new Label();
         cityCurrentTemperatureResult.setText(weatherData.getCurrentTemperatureC() + "°C | " + weatherData.getCurrentTemperatureF() + "°F");
         cityCurrentTemperatureResult.setId("currentTemperatureID");
-        cityCurrentTemperatureResult.setLayoutX(40);
+        cityCurrentTemperatureResult.setLayoutX(defaultLayoutX);
         cityCurrentTemperatureResult.setLayoutY(170);
         cityCurrentTemperatureResult.setTextFill(Gradients.getGradient1());
         root.getChildren().add(cityCurrentTemperatureResult);
@@ -38,7 +50,7 @@ public class CurrentWeatherNodes extends ApplicationInterface {
         Label cityFeelsLikeResult = new Label();
         cityFeelsLikeResult.setText("Feels like " + weatherData.getCurrentFeelsLikeC() + "°C | " + weatherData.getCurrentFeelsLikeF() + "°F");
         cityFeelsLikeResult.setId("feelsLikeID");
-        cityFeelsLikeResult.setLayoutX(40);
+        cityFeelsLikeResult.setLayoutX(defaultLayoutX);
         cityFeelsLikeResult.setLayoutY(212);
         cityFeelsLikeResult.setTextFill(Gradients.getGradient2());
         root.getChildren().add(cityFeelsLikeResult);
@@ -47,7 +59,7 @@ public class CurrentWeatherNodes extends ApplicationInterface {
         Label cityHumidityResult = new Label();
         cityHumidityResult.setText("Humidity " + weatherData.getCurrentCityHumidity());
         cityHumidityResult.setId("infoResultID");
-        cityHumidityResult.setLayoutX(40);
+        cityHumidityResult.setLayoutX(defaultLayoutX);
         cityHumidityResult.setLayoutY(240);
         root.getChildren().add(cityHumidityResult);
         NodeStorage.addToNodeStorageList(cityHumidityResult);

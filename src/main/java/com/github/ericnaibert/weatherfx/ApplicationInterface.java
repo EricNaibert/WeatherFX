@@ -1,6 +1,7 @@
 package com.github.ericnaibert.weatherfx;
 
 import com.github.ericnaibert.weatherfx.data.KeyHome;
+import com.github.ericnaibert.weatherfx.tools.StoragePath;
 import com.github.ericnaibert.weatherfx.window.WindowHome;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -17,9 +18,8 @@ public class ApplicationInterface extends Application {
     @Override
     public void start(Stage stage) {
 
-        String userHome = System.getProperty("user.home");
-        String path = userHome + File.separator + "WeatherFX" + File.separator + "WeatherConfig.wfx";
-        File file = new File(path);
+        StoragePath storagePath = new StoragePath();
+        File file = storagePath.keyPath();
 
         stage.setResizable(false);
         stage.setTitle("Weather FX");
@@ -31,6 +31,7 @@ public class ApplicationInterface extends Application {
             windowHome.weatherHome();
             stage.setScene(WindowHome.scene);
             stage.show();
+
         } else {
             keyHome.homePage();
             stage.setScene(KeyHome.homeScene);
