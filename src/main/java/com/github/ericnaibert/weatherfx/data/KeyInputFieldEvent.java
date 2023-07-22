@@ -12,11 +12,22 @@ public class KeyInputFieldEvent implements InputFieldEvent {
     public EventHandler<ActionEvent> eventHandler(TextField textField) {
 
         KeyStorage keyStorage = new KeyStorage();
+        KeyHomeAlert keyAlert = new KeyHomeAlert();
 
         textField.setOnKeyPressed(event -> {
 
             if(event.getCode() == KeyCode.ENTER) {
-                keyStorage.storeKey(textField.getText());
+                String inputKey = textField.getText();
+
+                if(inputKey.getBytes().length <= 20) {
+                    keyAlert.isKeyValid(false);
+                    textField.clear();
+                } else {
+                    keyAlert.isKeyValid(true);
+                    keyStorage.storeKey(inputKey);
+                    textField.clear();
+                }
+
             }
 
         });

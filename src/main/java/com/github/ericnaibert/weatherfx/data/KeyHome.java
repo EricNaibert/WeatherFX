@@ -18,8 +18,6 @@ public class KeyHome extends ApplicationInterface {
 
     public void homePage() {
 
-        KeyStorage keyStorage = new KeyStorage();
-
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("homepage-view.fxml"));
 
         String css = (Objects.requireNonNull(Main.class.getResource("application.css")).toExternalForm());
@@ -42,7 +40,6 @@ public class KeyHome extends ApplicationInterface {
         textFieldKey.setPrefWidth(400);
         textFieldKey.setOnAction(inputFieldEvent.eventHandler(textFieldKey));
         setKey(textFieldKey.getText());
-        keyStorage.storeKey(getKey());
 
         homeRoot.getChildren().add(textFieldKey);
 

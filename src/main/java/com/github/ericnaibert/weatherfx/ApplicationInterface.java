@@ -1,7 +1,6 @@
 package com.github.ericnaibert.weatherfx;
 
 import com.github.ericnaibert.weatherfx.data.KeyHome;
-import com.github.ericnaibert.weatherfx.data.KeyReader;
 import com.github.ericnaibert.weatherfx.window.WindowHome;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -29,7 +28,6 @@ public class ApplicationInterface extends Application {
         WindowHome windowHome = new WindowHome();
 
         if(file.exists()) {
-            KeyReader.keyReader();
             windowHome.weatherHome();
             stage.setScene(WindowHome.scene);
             stage.show();
