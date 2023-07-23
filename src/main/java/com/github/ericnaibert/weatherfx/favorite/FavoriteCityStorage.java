@@ -1,7 +1,7 @@
 package com.github.ericnaibert.weatherfx.favorite;
 
+import com.github.ericnaibert.weatherfx.api.WeatherData;
 import com.github.ericnaibert.weatherfx.tools.StoragePath;
-import com.github.ericnaibert.weatherfx.window.WindowInputFieldEvent;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -10,6 +10,7 @@ public class FavoriteCityStorage {
 
     public static void storeFavorite() {
 
+        WeatherData weatherData = new WeatherData();
         StoragePath storagePath = new StoragePath();
         File file = storagePath.favoritePath();
 
@@ -17,7 +18,7 @@ public class FavoriteCityStorage {
             FileOutputStream fileInputStream = new FileOutputStream(file);
             DataOutputStream outputStream = new DataOutputStream(fileInputStream);
 
-            outputStream.writeBytes(WindowInputFieldEvent.inputCityName);
+            outputStream.writeBytes(weatherData.getCurrentCityName().replace(" ", "_"));
             outputStream.close();
 
         } catch (FileNotFoundException e) {

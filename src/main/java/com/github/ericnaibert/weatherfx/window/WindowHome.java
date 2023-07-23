@@ -4,6 +4,7 @@ import com.github.ericnaibert.weatherfx.ApplicationInterface;
 import com.github.ericnaibert.weatherfx.Main;
 import com.github.ericnaibert.weatherfx.api.InvokeTask;
 import com.github.ericnaibert.weatherfx.controllers.WindowHomeController;
+import com.github.ericnaibert.weatherfx.favorite.FavoriteCityNode;
 import com.github.ericnaibert.weatherfx.favorite.FavoriteCityReader;
 import com.github.ericnaibert.weatherfx.tools.StoragePath;
 import javafx.fxml.FXMLLoader;
@@ -47,8 +48,12 @@ public class WindowHome extends ApplicationInterface {
         inputField.setOnAction(inputFieldEvent.eventHandler(inputField));
         root.getChildren().add(inputField);
 
-        if(favoriteFilePath.exists()) {
+        if(favoriteFilePath.exists() && !FavoriteCityReader.readFavorite().isEmpty()) {
             InvokeTask.invokeWeatherTask(FavoriteCityReader.readFavorite());
+            FavoriteCityNode.setFavoriteStarColor(2);
+            FavoriteCityNode.setFavorite(true);
+        } else {
+            FavoriteCityNode.setFavoriteStarColor(1);
         }
 
         scene = new Scene(root, 700, 500);

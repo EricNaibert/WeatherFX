@@ -7,15 +7,15 @@ public class FavoriteCityEventHandler {
 
     public static void event(Button button) {
 
-        if(!FavoriteCityNode.isFavorite) {
+        if(!FavoriteCityNode.isFavorite()) {
             FavoriteCityStorage.storeFavorite();
-            button.setBackground(FavoriteCityIcon.getStarImage(2));
-            FavoriteCityNode.isFavorite = true;
+            FavoriteCityNode.setFavoriteStarColor(2);
+            FavoriteCityNode.setFavorite(true);
 
         } else {
             FavoriteCityStorage.deleteFavorite();
-            button.setBackground(FavoriteCityIcon.getStarImage(1));
-            FavoriteCityNode.isFavorite = false;
+            FavoriteCityNode.setFavoriteStarColor(1);
+            FavoriteCityNode.setFavorite(false);
         }
     }
 

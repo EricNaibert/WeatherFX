@@ -20,6 +20,8 @@ public class FavoriteCityReader {
 
             cityInFile = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
 
+            inputStream.close();
+
         } catch (FileNotFoundException e) {
             System.out.println("readFavorite(): File Not Found! Exception: " + e);
         } catch (IOException e) {
