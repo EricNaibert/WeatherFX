@@ -3,7 +3,7 @@ package com.github.ericnaibert.weatherfx.api;
 import com.github.ericnaibert.weatherfx.data.KeyReader;
 import javafx.concurrent.Task;
 
-import javax.net.ssl.HttpsURLConnection;
+import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
 import java.util.Scanner;
@@ -25,7 +25,7 @@ public class WeatherConnection extends Task<Void> {
 
             URL weatherURL = new URI(url).toURL();
 
-            HttpsURLConnection connection = (HttpsURLConnection) weatherURL.openConnection();
+            HttpURLConnection connection = (HttpURLConnection) weatherURL.openConnection();
             connection.setRequestMethod("GET");
             connection.connect();
 
