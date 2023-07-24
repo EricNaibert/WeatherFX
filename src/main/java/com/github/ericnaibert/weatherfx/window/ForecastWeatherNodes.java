@@ -23,7 +23,7 @@ public class ForecastWeatherNodes extends ApplicationInterface {
         ArrayList<Label> forecastHumidityResult = new ArrayList<>();
 
         int posX = 90;
-        int posY = 290;
+        int posY = 280;
 
         WeatherData weatherData = new WeatherData();
 
@@ -110,7 +110,7 @@ public class ForecastWeatherNodes extends ApplicationInterface {
         for (int i = 0; i <= 2; i++) {
             forecastDateResult.get(i).setId("dayOfWeekID");
 
-            forecastWeatherIconResult.get(i).setImage(new Image("https:" + weatherData.getForecastCityWeatherIcon(i)));
+            forecastWeatherIconResult.get(i).setImage(new Image("http:" + weatherData.getForecastCityWeatherIcon(i)));
 
             forecastWeatherTextResult.get(i).setId("forecastInfoResultID");
 

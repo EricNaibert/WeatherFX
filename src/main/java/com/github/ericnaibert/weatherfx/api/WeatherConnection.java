@@ -21,7 +21,7 @@ public class WeatherConnection extends Task<Void> {
 
             String cityURL = "&q=" + weatherConnection.getCityName() + "&days=3&aqi=no&alerts=no";
 
-            String url = "https://api.weatherapi.com/v1/forecast.json?key=" + accessKey + cityURL;
+            String url = "http://api.weatherapi.com/v1/forecast.json?key=" + accessKey + cityURL;
 
             URL weatherURL = new URI(url).toURL();
 
@@ -30,7 +30,7 @@ public class WeatherConnection extends Task<Void> {
             connection.connect();
 
             if(connection.getResponseCode() != 200) {
-                throw new RuntimeException("HTTPS RESPONSE: " + connection.getResponseCode());
+                throw new RuntimeException("HTTP RESPONSE: " + connection.getResponseCode());
             } else {
                 StringBuilder informationFromJson = new StringBuilder();
                 Scanner scanner = new Scanner(weatherURL.openStream());

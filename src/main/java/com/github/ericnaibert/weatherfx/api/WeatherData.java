@@ -50,7 +50,6 @@ public class WeatherData {
         for(int i = 0; i <=2 ; i++) {
 
             setForecastCityWeatherText(weatherInfoJson.getForecast().forecastday.get(i).day.condition.currentWeatherText);
-            setForecastCityWeatherText(weatherInfoJson.getForecast().forecastday.get(i).day.condition.currentWeatherText);
             setForecastCityWeatherIcon(weatherInfoJson.getForecast().forecastday.get(i).day.condition.currentWeatherIcon);
             setMaxTemperatureC(weatherInfoJson.getForecast().forecastday.get(i).day.maxTemperatureC);
             setMaxTemperatureF(weatherInfoJson.getForecast().forecastday.get(i).day.maxTemperatureF);
